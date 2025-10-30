@@ -17,7 +17,7 @@ echo "Substituting environment variables in nginx.conf..."
 envsubst '${PORT}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf
 
 echo "nginx.conf configuration:"
-cat /etc/nginx/nginx.conf | grep "listen"
+cat /etc/nginx/nginx.conf | grep "listen" || true
 
 echo "Starting nginx..."
 # 以前台模式启动 nginx，这样 Docker 容器不会退出

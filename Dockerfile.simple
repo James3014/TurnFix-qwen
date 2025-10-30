@@ -1,0 +1,26 @@
+# 备用简化方案 - 如果 envsubst 方案不工作则使用此方案
+# 使用固定端口 8080，让 Zeabur 处理端口映射
+
+# 第一階段：構建 React 應用
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+COPY package.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# 第二階段：nginx 服务
+FROM nginx:alpine
+
+# 复制简单的 nginx 配置（固定端口 8080）
+COPY nginx-simple.conf /etc/nginx/nginx.conf
+
+# 复制构建的文件
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# 暴露端口 8080
+EXPOSE 8080
+
+# 启动 nginx
+CMD ["nginx", "-g", "daemon off;"]
