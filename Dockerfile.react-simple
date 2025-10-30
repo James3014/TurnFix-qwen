@@ -1,0 +1,37 @@
+# 使用 Node.js 進行構建
+FROM node:18-alpine AS builder
+
+# 設置工作目錄
+WORKDIR /app
+
+# 複製 package 文件
+COPY package.json ./
+
+# 安裝依賴
+RUN npm install
+
+# 複製前端源代碼
+COPY frontend/ ./frontend/
+COPY index.js ./
+COPY App.js ./
+
+# 構建應用（簡單的複製方式）
+RUN mkdir -p dist
+RUN cp -r frontend/* dist/
+RUN cp index.js dist/
+RUN cp App.js dist/
+
+# 使用 nginx 作為生產服務器
+FROM nginx:alpine
+
+# 複製 nginx 配置
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# 複製前端文件
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# 暴露端口
+EXPOSE 80
+
+# 啟動 nginx
+CMD ["nginx", "-g", "daemon off;"]
