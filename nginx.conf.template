@@ -11,9 +11,9 @@ http {
     gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
 
     server {
-        # 使用環境變量 PORT，會在啟動時由 envsubst 替換
-        # 如果沒有 PORT 環境變量則默認為 80
-        listen ${PORT:-80};
+        # 使用環境變量 PORT，會在啟動時由 entrypoint.sh 中的 envsubst 替換
+        # 如果沒有 PORT 環境變量則由 entrypoint.sh 設置默認值 80
+        listen ${PORT};
         server_name _;
 
         # 設置根目錄
