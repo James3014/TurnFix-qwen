@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurnFix - 滑雪症狀診斷與練習系統</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        #root {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- 加載 React, ReactDOM, React Router DOM, Babel -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- 加載所有組件 -->
+    <script type="text/babel" data-type="module">
+        // 定義全局組件
+        const { useState, useEffect } = React;
+        const { BrowserRouter: Router, Routes, Route, useNavigate, useLocation } = ReactRouterDOM;
+        
+        // 在這裡需要導入所有組件的源代碼
+        // 要創建一個整合版本，需要將所有組件和邏輯合併到一個文件中
+        // 以下是一個簡化的版本，展示如何將所有組件整合在一起
+        
+        // 導航組件 - 簡化版本
+        const Navigation = () => {
+            return (
+                <nav className="navigation">
+                    <div className="nav-container">
+                        <h1>TurnFix</h1>
+                        <ul className="nav-links">
+                            <li><a href="/">首頁</a></li>
+                            <li><a href="/input">輸入問題</a></li>
+                            <li><a href="/practice">我的練習</a></li>
+                            <li><a href="/admin">管理</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            );
+        };
+
+        // 首頁組件 - 簡化版本
+        const HomePage = () => {
+            const navigate = useNavigate();
+            
+            return (
+                <div className="home-page">
+                    <h1>歡迎來到 TurnFix</h1>
+                    <p>AI 驅動的滑雪問題診斷與練習建議系統</p>
+                    <button onClick={() => navigate('/input')}>
+                        開始診斷您的滑雪問題
+                    </button>
+                </div>
+            );
+        };
+
+        // 輸入表單組件 - 簡化版本
+        const SkiInputForm = () => {
+            const [inputText, setInputText] = useState('');
+            const [level, setLevel] = useState('');
+            const [terrain, setTerrain] = useState('');
+            const [style, setStyle] = useState('');
+            const navigate = useNavigate();
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                
+                // 需要向後端發送請求
+                try {
+                    // 在實際部署中，需要使用後端API的正確URL
+                    const API_BASE_URL = window.location.hostname === 'localhost' 
+                        ? 'http://localhost:8000' 
+                        : 'https://turnfix-api.zeabur.app';
+                    
+                    const response = await fetch(\`\${API_BASE_URL}/ski-tips?input_text=\${encodeURIComponent(inputText)}&level=\${encodeURIComponent(level)}&terrain=\${encodeURIComponent(terrain)}&style=\${encodeURIComponent(style)}\`);
+                    const data = await response.json();
+                    
+                    // 跳轉到結果頁面，傳遞推薦的練習卡
+                    navigate('/results', { state: { recommendedCards: data.recommended_cards } });
+                } catch (error) {
+                    console.error('提交失敗:', error);
+                    alert('提交失敗，請重試');
+                }
+            };
+
+            return (
+                <div className="ski-input-form">
+                    <h2>描述您的滑雪問題</h2>
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label>問題描述：</label>
+                            <textarea 
+                                value={inputText} 
+                                onChange={(e) => setInputText(e.target.value)} 
+                                placeholder="例如：轉彎會後坐、無法換刃等"
+                                required
+                            />
+                        </div>
+                        
+                        <div className="form-group">
+                            <label>滑雪等級：</label>
+                            <select value={level} onChange={(e) => setLevel(e.target.value)}>
+                                <option value="">請選擇</option>
+                                <option value="初級">初級</option>
+                                <option value="中級">中級</option>
+                                <option value="高級">高級</option>
+                            </select>
+                        </div>
+                        
+                        <div className="form-group">
+                            <label>常用地形：</label>
+                            <select value={terrain} onChange={(e) => setTerrain(e.target.value)}>
+                                <option value="">請選擇</option>
+                                <option value="綠線">綠線</option>
+                                <option value="藍線">藍線</option>
+                                <option value="黑線">黑線</option>
+                                <option value="雙黑線">雙黑線</option>
+                            </select>
+                        </div>
+                        
+                        <div className="form-group">
+                            <label>滑行風格：</label>
+                            <select value={style} onChange={(e) => setStyle(e.target.value)}>
+                                <option value="">請選擇</option>
+                                <option value="平花">平花</option>
+                                <option value="Park">Park</option>
+                                <option value="野雪">野雪</option>
+                                <option value="競速">競速</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit">提交</button>
+                    </form>
+                </div>
+            );
+        };
+
+        // 結果頁面組件 - 簡化版本
+        const ResultsPage = () => {
+            const location = useLocation();
+            const { recommendedCards = [] } = location.state || {};
+            
+            return (
+                <div className="results-page">
+                    <h2>推薦練習</h2>
+                    <div className="recommended-cards">
+                        {recommendedCards.length > 0 ? (
+                            recommendedCards.map((card, index) => (
+                                <div key={index} className="practice-card">
+                                    <h3>{card.name}</h3>
+                                    <p><strong>目標：</strong>{card.goal}</p>
+                                    <p><strong>要點：</strong>{card.tips ? card.tips.join(', ') : '無'}</p>
+                                    <p><strong>常見錯誤：</strong>{card.pitfalls || '無'}</p>
+                                    <p><strong>建議次數：</strong>{card.dosage || '無'}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <p>載入中或無推薦結果...</p>
+                        )}
+                    </div>
+                </div>
+            );
+        };
+
+        // 主應用組件
+        const App = () => {
+            return (
+                <Router>
+                    <div className="app">
+                        <Navigation />
+                        <main className="app-main">
+                            <Routes>
+                                <Route path="/" element={<HomePage />} />
+                                <Route path="/input" element={<SkiInputForm />} />
+                                <Route path="/results" element={<ResultsPage />} />
+                                {/* 添加其他路由 */}
+                            </Routes>
+                        </main>
+                        <footer className="app-footer">
+                            <p>© 2025 TurnFix - 滑雪症狀診斷與練習建議系統</p>
+                        </footer>
+                    </div>
+                </Router>
+            );
+        };
+
+        // 渲染應用
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+        root.render(<App />);
+    </script>
+</body>
+</html>
