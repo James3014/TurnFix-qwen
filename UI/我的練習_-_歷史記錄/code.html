@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>我的練習 - 歷史記錄</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13a4ec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="flex flex-col flex-1 pb-24">
+<!-- TopAppBar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center">
+<!-- Placeholder for potential back button or menu icon -->
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">我的練習 - 歷史記錄</h2>
+<div class="flex size-12 shrink-0 items-center">
+<!-- Placeholder for potential action button -->
+</div>
+</div>
+<!-- Recent Practice Summary -->
+<div class="px-4">
+<!-- SectionHeader -->
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-4">近期摘要</h3>
+<!-- Stats -->
+<div class="flex flex-wrap gap-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">總練習次數</p>
+<p class="text-slate-900 dark:text-white tracking-light text-2xl font-bold leading-tight">28</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">本週練習時長</p>
+<p class="text-slate-900 dark:text-white tracking-light text-2xl font-bold leading-tight">3.5 小時</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium leading-normal">最常分析的技巧</p>
+<p class="text-slate-900 dark:text-white tracking-light text-2xl font-bold leading-tight">轉彎</p>
+</div>
+</div>
+</div>
+<!-- History List -->
+<div class="mt-6 px-4">
+<h3 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2 pt-4">所有記錄</h3>
+<div class="flex flex-col gap-2">
+<!-- ListItem 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900/50 px-4 min-h-[72px] py-2 justify-between rounded-lg">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12 text-primary">
+<span class="material-symbols-outlined" data-icon="downhill_skiing">downhill_skiing</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-800 dark:text-white text-base font-medium leading-normal line-clamp-1">2024年2月18日</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">轉彎時重心不穩</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-slate-400 dark:text-slate-500 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined" data-icon="CaretRight">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- ListItem 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900/50 px-4 min-h-[72px] py-2 justify-between rounded-lg">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12 text-primary">
+<span class="material-symbols-outlined" data-icon="downhill_skiing">downhill_skiing</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-800 dark:text-white text-base font-medium leading-normal line-clamp-1">2024年2月15日</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">坡度陡峭時速度控制困難</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-slate-400 dark:text-slate-500 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined" data-icon="CaretRight">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- ListItem 3 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900/50 px-4 min-h-[72px] py-2 justify-between rounded-lg">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12 text-primary">
+<span class="material-symbols-outlined" data-icon="downhill_skiing">downhill_skiing</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-800 dark:text-white text-base font-medium leading-normal line-clamp-1">2024年2月11日</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">S型轉彎不流暢</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-slate-400 dark:text-slate-500 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined" data-icon="CaretRight">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- ListItem 4 -->
+<div class="flex items-center gap-4 bg-white dark:bg-slate-900/50 px-4 min-h-[72px] py-2 justify-between rounded-lg">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-12 text-primary">
+<span class="material-symbols-outlined" data-icon="downhill_skiing">downhill_skiing</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-800 dark:text-white text-base font-medium leading-normal line-clamp-1">2024年2月9日</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">停止時不穩定</p>
+</div>
+</div>
+<div class="shrink-0">
+<div class="text-slate-400 dark:text-slate-500 flex size-7 items-center justify-center">
+<span class="material-symbols-outlined" data-icon="CaretRight">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 h-20 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-800">
+<div class="flex justify-around items-center h-full max-w-md mx-auto">
+<a class="flex flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400 w-20" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-medium">首頁</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-primary w-20" href="#">
+<span class="material-symbols-outlined fill-1">history</span>
+<span class="text-xs font-bold">我的練習</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-slate-500 dark:text-slate-400 w-20" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-xs font-medium">設定</span>
+</a>
+</div>
+</div>
+</div>
+</body></html>

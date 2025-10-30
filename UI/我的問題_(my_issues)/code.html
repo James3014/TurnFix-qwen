@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>描述您的問題 - 滑雪 App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13a4ec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "Noto Sans TC", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<main class="flex-1 pb-28">
+<div class="flex items-center bg-background-dark p-4 pb-2">
+<div class="flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-white/80" style="font-size: 28px;">snowing</span>
+</div>
+<h1 class="flex-1 text-lg font-bold leading-tight tracking-[-0.015em] text-white">描述您的問題</h1>
+</div>
+<div class="px-4 pt-4">
+<textarea class="w-full rounded-xl border-none bg-black/20 p-4 text-white placeholder:text-white/40 focus:ring-2 focus:ring-primary focus:ring-opacity-50" placeholder="請詳細描述您遇到的問題..." rows="4"></textarea>
+</div>
+<div class="px-4 pt-4 pb-2">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">您的滑雪等級是？</h2>
+</div>
+<div class="flex px-4 py-3">
+<div class="flex h-12 flex-1 items-center justify-center rounded-xl bg-black/20 p-1">
+<label class="flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal text-white/60 has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:shadow-lg has-[:checked]:shadow-primary/20">
+<span class="truncate">初學者</span>
+<input checked="" class="invisible w-0" name="skill-level" type="radio" value="Beginner"/>
+</label>
+<label class="flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal text-white/60 has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:shadow-lg has-[:checked]:shadow-primary/20">
+<span class="truncate">中級</span>
+<input class="invisible w-0" name="skill-level" type="radio" value="Intermediate"/>
+</label>
+<label class="flex h-full grow cursor-pointer items-center justify-center overflow-hidden rounded-lg px-2 text-sm font-medium leading-normal text-white/60 has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:shadow-lg has-[:checked]:shadow-primary/20">
+<span class="truncate">高級</span>
+<input class="invisible w-0" name="skill-level" type="radio" value="Advanced"/>
+</label>
+</div>
+</div>
+<div class="px-4 pt-4 pb-2">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">您在哪種地形上滑行？</h2>
+</div>
+<div class="flex flex-wrap gap-3 px-4 py-3">
+<label class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-black/20 px-4 has-[:checked]:bg-primary has-[:checked]:text-white">
+<p class="text-sm font-medium leading-normal text-white/80">平地</p>
+<input class="invisible w-0" name="terrain" type="radio" value="Flat"/>
+</label>
+<label class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-black/20 px-4 has-[:checked]:bg-primary has-[:checked]:text-white">
+<p class="text-sm font-medium leading-normal text-white/80">斜坡</p>
+<input checked="" class="invisible w-0" name="terrain" type="radio" value="Slope"/>
+</label>
+<label class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-black/20 px-4 has-[:checked]:bg-primary has-[:checked]:text-white">
+<p class="text-sm font-medium leading-normal text-white/80">滑雪公園</p>
+<input class="invisible w-0" name="terrain" type="radio" value="Snow Park"/>
+</label>
+</div>
+<div class="px-4 pt-4 pb-2">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">您的滑行風格是？</h2>
+</div>
+<div class="flex flex-wrap gap-3 px-4 py-3">
+<label class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-black/20 px-4 has-[:checked]:bg-primary has-[:checked]:text-white">
+<p class="text-sm font-medium leading-normal text-white/80">休閒</p>
+<input checked="" class="invisible w-0" name="style" type="radio" value="Leisure"/>
+</label>
+<label class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-black/20 px-4 has-[:checked]:bg-primary has-[:checked]:text-white">
+<p class="text-sm font-medium leading-normal text-white/80">速度</p>
+<input class="invisible w-0" name="style" type="radio" value="Speed"/>
+</label>
+<label class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-black/20 px-4 has-[:checked]:bg-primary has-[:checked]:text-white">
+<p class="text-sm font-medium leading-normal text-white/80">技巧</p>
+<input class="invisible w-0" name="style" type="radio" value="Technique"/>
+</label>
+</div>
+<div class="px-4 pt-4">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-white">常見問題</h2>
+<div class="mt-4 space-y-3">
+<div class="flex items-center justify-between rounded-xl bg-black/20 p-4">
+<p class="font-medium text-white">無法順利轉彎</p>
+<span class="material-symbols-outlined text-white/50">chevron_right</span>
+</div>
+<div class="flex items-center justify-between rounded-xl bg-black/20 p-4">
+<p class="font-medium text-white">失去平衡</p>
+<span class="material-symbols-outlined text-white/50">chevron_right</span>
+</div>
+<div class="flex items-center justify-between rounded-xl bg-black/20 p-4">
+<p class="font-medium text-white">速度控制困難</p>
+<span class="material-symbols-outlined text-white/50">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="p-4 pt-6">
+<button class="flex h-14 w-full items-center justify-center rounded-xl bg-primary text-base font-bold text-white shadow-lg shadow-primary/20 transition-transform active:scale-95">分析我的滑行</button>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 border-t border-white/10 bg-background-dark/80 backdrop-blur-lg">
+<div class="mx-auto flex h-20 max-w-md items-center justify-around px-4">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs font-medium">首頁</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-white/50" href="#">
+<span class="material-symbols-outlined">model_training</span>
+<span class="text-xs font-medium">我的練習</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-white/50" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-xs font-medium">設定</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

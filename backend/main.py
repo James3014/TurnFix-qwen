@@ -1,0 +1,53 @@
+"""
+TurnFix 後端主應用程式
+
+此應用程式提供 API 端點以處理：
+1. 症狀辨識
+2. 練習卡建議生成
+3. 自適應追問
+4. 使用者回饋
+
+保持簡單，避免企業級複雜度
+遵循 Linus 的"好品味"原則
+"""
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from .api.v1.router import router as v1_router
+
+app = FastAPI(
+    title="TurnFix API",
+    description="滑雪症狀診斷與練習建議系統",
+    version="0.1.0"
+)
+
+# CORS 中間件配置
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 在生產環境中應限制特定來源
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# 包含 API 路由
+app.include_router(v1_router, prefix="/api/v1")
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to TurnFix API"}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
+# 確保應用程式啟動時初始化必要的組件
+@app.on_event("startup")
+async def startup_event():
+    # 在這裡可以初始化資料庫連接、AI 模型等
+    pass
+
+# 確保應用程式關閉時清理資源
+@app.on_event("shutdown")
+async def shutdown_event():
+    # 在這裡可以清理資料庫連接、AI 模型等
+    pass

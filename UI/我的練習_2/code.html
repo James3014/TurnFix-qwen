@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>我的練習</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "Noto Sans TC", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', 'Noto Sans TC', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col dark group/design-root overflow-x-hidden">
+<main class="flex-1 pb-32">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">arrow_back_ios_new</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">我的練習</h2>
+</div>
+<!-- Body Text -->
+<p class="text-slate-300 text-base font-normal leading-normal pb-3 pt-1 px-4">提供更多細節，幫助我們為您進行更精準的分析。</p>
+<!-- Question 1 -->
+<div class="px-4 pt-4">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2">轉彎時重心</h3>
+<div class="flex h-10 w-full items-center justify-center rounded-lg bg-[#1a2831] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[0.3rem] px-2 has-[:checked]:bg-primary has-[:checked]:shadow-[0_1px_3px_rgba(19,164,236,0.3)] has-[:checked]:text-white text-slate-300 text-sm font-medium leading-normal transition-colors">
+<span class="truncate">太前</span>
+<input class="invisible w-0" name="center_of_gravity" type="radio" value="太前"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[0.3rem] px-2 has-[:checked]:bg-primary has-[:checked]:shadow-[0_1px_3px_rgba(19,164,236,0.3)] has-[:checked]:text-white text-slate-300 text-sm font-medium leading-normal transition-colors">
+<span class="truncate">太後</span>
+<input class="invisible w-0" name="center_of_gravity" type="radio" value="太後"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[0.3rem] px-2 has-[:checked]:bg-primary has-[:checked]:shadow-[0_1px_3px_rgba(19,164,236,0.3)] has-[:checked]:text-white text-slate-300 text-sm font-medium leading-normal transition-colors">
+<span class="truncate">居中</span>
+<input checked="" class="invisible w-0" name="center_of_gravity" type="radio" value="居中"/>
+</label>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="px-4 pt-6">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2">遇到困難時的反應</h3>
+<div class="flex h-10 w-full items-center justify-center rounded-lg bg-[#1a2831] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[0.3rem] px-2 has-[:checked]:bg-primary has-[:checked]:shadow-[0_1px_3px_rgba(19,164,236,0.3)] has-[:checked]:text-white text-slate-300 text-sm font-medium leading-normal transition-colors">
+<span class="truncate">肌肉僵硬</span>
+<input class="invisible w-0" name="reaction" type="radio" value="肌肉僵硬"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[0.3rem] px-2 has-[:checked]:bg-primary has-[:checked]:shadow-[0_1px_3px_rgba(19,164,236,0.3)] has-[:checked]:text-white text-slate-300 text-sm font-medium leading-normal transition-colors">
+<span class="truncate">過度用力</span>
+<input class="invisible w-0" name="reaction" type="radio" value="過度用力"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[0.3rem] px-2 has-[:checked]:bg-primary has-[:checked]:shadow-[0_1px_3px_rgba(19,164,236,0.3)] has-[:checked]:text-white text-slate-300 text-sm font-medium leading-normal transition-colors">
+<span class="truncate">身體失衡</span>
+<input checked="" class="invisible w-0" name="reaction" type="radio" value="身體失衡"/>
+</label>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="px-4 pt-6">
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] pb-2">使用的雪板類型</h3>
+<div class="flex h-10 w-full items-center justify-center rounded-lg bg-[#1a2831] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[0.3rem] px-2 has-[:checked]:bg-primary has-[:checked]:shadow-[0_1px_3px_rgba(19,164,236,0.3)] has-[:checked]:text-white text-slate-300 text-sm font-medium leading-normal transition-colors">
+<span class="truncate">全能板</span>
+<input checked="" class="invisible w-0" name="board_type" type="radio" value="全能板"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[0.3rem] px-2 has-[:checked]:bg-primary has-[:checked]:shadow-[0_1px_3px_rgba(19,164,236,0.3)] has-[:checked]:text-white text-slate-300 text-sm font-medium leading-normal transition-colors">
+<span class="truncate">Park板</span>
+<input class="invisible w-0" name="board_type" type="radio" value="Park板"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-[0.3rem] px-2 has-[:checked]:bg-primary has-[:checked]:shadow-[0_1px_3px_rgba(19,164,236,0.3)] has-[:checked]:text-white text-slate-300 text-sm font-medium leading-normal transition-colors">
+<span class="truncate">粉雪板</span>
+<input class="invisible w-0" name="board_type" type="radio" value="粉雪板"/>
+</label>
+</div>
+</div>
+</main>
+<!-- Action Buttons -->
+<div class="fixed bottom-20 left-0 right-0 w-full bg-background-dark/80 backdrop-blur-sm p-4 pt-3 z-10">
+<div class="flex gap-4">
+<button class="flex h-12 flex-1 items-center justify-center rounded-xl bg-slate-700/50 text-base font-bold text-slate-300">略過</button>
+<button class="flex h-12 flex-1 items-center justify-center rounded-xl bg-primary text-base font-bold text-white shadow-[0_4px_14px_rgba(19,164,236,0.3)]">確認</button>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-10 w-full border-t border-slate-700/50 bg-background-dark/80 backdrop-blur-sm">
+<div class="flex h-20 items-center justify-around px-2">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined text-2xl">home</span>
+<span class="text-xs font-medium">首頁</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined text-2xl">snowboarding</span>
+<span class="text-xs font-bold">我的練習</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="text-xs font-medium">設定</span>
+</a>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,51 @@
+/**
+ * 練習卡列表樣式
+ */
+.practice-card-list {
+  width: 100%;
+}
+
+.count-message {
+  text-align: center;
+  padding: 1rem;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: #495057;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.no-cards-message {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.no-cards-message h2 {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.no-cards-message p {
+  color: #6c757d;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .count-message {
+    font-size: 0.875rem;
+    padding: 0.75rem;
+  }
+}

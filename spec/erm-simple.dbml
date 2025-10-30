@@ -1,0 +1,48 @@
+Table Symptom {
+  id int [pk, note: "必須 > 0"]
+  name varchar(100) [note: "症狀名稱"]
+  synonyms text[] [note: "儲存同義詞列表，最多 20 個"]
+  level_scope text[] [note: "儲存適用等級範圍列表，允許未來擴充的開放字串列表"]
+  terrain_scope text[] [note: "儲存適用地形範圍列表，允許未來擴充的開放字串列表"]
+  style_scope text[] [note: "儲存適用滑行風格或類型列表"]
+  category varchar(50) [note: "症狀類別，值域：技術, 裝備"]
+  
+  indexes {
+    [name] [unique]
+  }
+}
+
+Table PracticeCard {
+  id int [pk, note: "必須 > 0"]
+  name varchar(150) [note: "練習卡名稱"]
+  goal text [note: "練習目標"]
+  tips text[] [note: "儲存要點列表，最多 3 項"]
+  pitfalls text [note: "儲存常見錯誤修正，單一文字"]
+  dosage varchar(255) [note: "儲存建議次數/時長，自由文字格式"]
+  level text[] [note: "儲存適用等級，允許未來擴充的開放字串列表"]
+  terrain text[] [note: "儲存適用地形，允許未來擴充的開放字串列表"]
+  self_check text[] [note: "儲存自我檢查點列表，最多 3 項"]
+  card_type varchar(50) [note: "練習卡類型，影響輸出格式"]
+}
+
+Table Session {
+  id int [pk, note: "必須 > 0"]
+  user_type varchar(20) [note: "使用者類型，值域：學員, 教練"]
+  input_text text [note: "使用者輸入的口語問題"]
+  level_slot varchar(50) [note: "選填等級資訊"]
+  terrain_slot varchar(50) [note: "選填地形資訊"]
+  style_slot varchar(50) [note: "選填滑行風格資訊"]
+  chosen_symptom_id int [note: "必須 > 0"]
+  feedback_rating varchar(10) [note: "回饋評分，例如：👍/👎"]
+  feedback_text text [note: "回饋自由文字"]
+}
+
+Table SymptomPracticeMapping {
+  symptom_id int [ref: > Symptom.id, note: "必須 > 0"]
+  practice_id int [ref: > PracticeCard.id, note: "必須 > 0"]
+  order int [note: "排序順序"]
+  
+  indexes {
+    [symptom_id, practice_id] [unique]
+  }
+}

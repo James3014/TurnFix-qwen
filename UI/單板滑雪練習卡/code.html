@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="dark" lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>單板滑雪練習卡</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13a4ec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "Noto Sans TC", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>.custom-checkbox:checked {
+      background-color: #13a4ec;
+      border-color: #13a4ec;
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    }
+    .custom-checkbox-inverted:checked {
+      background-color: #FF4500;border-color: #FF4500;
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    }
+    .text-light-primary {
+      color: #FFFFFF;}
+    .text-light-secondary {
+      color: #a0aec0;}
+    .dark .text-light-primary {
+      color: #FFFFFF;
+    }
+    .dark .text-light-secondary {
+      color: #a0aec0;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 sticky top-0 z-10">
+<div class="text-light-primary flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-light-primary text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center -ml-12">單板滑雪練習卡</h2>
+</div>
+<div class="px-4 pb-8">
+<h1 class="text-light-primary tracking-light text-[32px] font-bold leading-tight text-left pb-2 pt-2">單板滑雪基本動作</h1>
+<p class="text-light-secondary text-base font-normal leading-normal pb-4">此練習旨在幫助您掌握最核心的滑行技巧，為後續進階動作打下堅實基礎。</p>
+<div class="flex flex-col gap-2 mb-6">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-light-primary text-base font-medium leading-normal">練習進度</p>
+<span class="text-primary font-bold">66%</span>
+</div>
+<div class="rounded-full bg-slate-700 h-2">
+<div class="h-2 rounded-full bg-primary" style="width: 66%;"></div>
+</div>
+</div>
+<div class="flex flex-col gap-6 bg-slate-500/10 dark:bg-slate-800/20 rounded-xl p-5">
+<div>
+<h3 class="text-light-primary text-lg font-bold leading-tight tracking-[-0.015em] pb-4">動作要點</h3>
+<div class="flex flex-col gap-4">
+<label class="flex items-center gap-4 text-light-primary text-base font-normal leading-normal">
+<input checked="" class="form-checkbox h-6 w-6 rounded-md bg-slate-700 border-slate-600 text-primary focus:ring-primary focus:ring-offset-background-dark custom-checkbox" type="checkbox"/>
+<span>保持膝蓋彎曲，重心放低</span>
+</label>
+<label class="flex items-center gap-4 text-light-primary text-base font-normal leading-normal">
+<input checked="" class="form-checkbox h-6 w-6 rounded-md bg-slate-700 border-slate-600 text-primary focus:ring-primary focus:ring-offset-background-dark custom-checkbox" type="checkbox"/>
+<span>上半身面向坡下，雙臂展開</span>
+</label>
+<label class="flex items-center gap-4 text-light-secondary text-base font-normal leading-normal">
+<input class="form-checkbox h-6 w-6 rounded-md bg-slate-700 border-slate-600 text-primary focus:ring-primary focus:ring-offset-background-dark custom-checkbox" type="checkbox"/>
+<span>視線注視前進方向</span>
+</label>
+</div>
+</div>
+<details class="group">
+<summary class="flex cursor-pointer list-none items-center justify-between">
+<h3 class="text-light-primary text-lg font-bold leading-tight tracking-[-0.015em]">常見錯誤修正</h3>
+<span class="text-primary transition-transform duration-300 group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<div class="mt-4 flex flex-col gap-3 text-light-secondary">
+<p><strong>錯誤：</strong>重心過於靠後，導致後刃失控。</p>
+<p><strong>修正：</strong>將重心前移至前腳，感受板頭壓力。</p>
+<p><strong>錯誤：</strong>身體過於僵硬，無法吸收震動。</p>
+<p><strong>修正：</strong>放鬆腳踝與膝蓋，讓身體更靈活。</p>
+</div>
+</details>
+<div>
+<h3 class="text-light-primary text-lg font-bold leading-tight tracking-[-0.015em] pb-3">建議次數/時間</h3>
+<div class="flex gap-3">
+<div class="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">
+<span class="material-symbols-outlined text-base">repeat</span>
+<span>建議次數: 15 次</span>
+</div>
+<div class="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">
+<span class="material-symbols-outlined text-base">timer</span>
+<span>建議時間: 10 分鐘</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-orange-400 text-lg font-bold leading-tight tracking-[-0.015em] pb-4">自我檢查點 (標記需改進)</h3>
+<div class="flex flex-col gap-4">
+<label class="flex items-center gap-4 text-light-secondary text-base font-normal leading-normal">
+<input class="form-checkbox h-6 w-6 rounded-md bg-slate-700 border-slate-600 focus:ring-orange-500 focus:ring-offset-background-dark custom-checkbox-inverted" type="checkbox"/>
+<span>是否感覺身體僵硬？</span>
+</label>
+<label class="flex items-center gap-4 text-light-secondary text-base font-normal leading-normal">
+<input checked="" class="form-checkbox h-6 w-6 rounded-md bg-slate-700 border-slate-600 focus:ring-orange-500 focus:ring-offset-background-dark custom-checkbox-inverted" type="checkbox"/>
+<span>轉彎時是否失去平衡？</span>
+</label>
+<label class="flex items-center gap-4 text-light-secondary text-base font-normal leading-normal">
+<input class="form-checkbox h-6 w-6 rounded-md bg-slate-700 border-slate-600 focus:ring-orange-500 focus:ring-offset-background-dark custom-checkbox-inverted" type="checkbox"/>
+<span>速度是否難以控制？</span>
+</label>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 bg-slate-500/10 dark:bg-slate-800/20 rounded-xl p-5 mt-6">
+<h3 class="text-light-primary text-lg font-bold leading-tight tracking-[-0.015em]">這個練習有幫助嗎？</h3>
+<div class="flex gap-3">
+<button class="flex-1 rounded-lg border border-slate-600 bg-slate-700/50 py-2 text-2xl transition-colors hover:bg-slate-700">👍</button>
+<button class="flex-1 rounded-lg border border-slate-600 bg-slate-700/50 py-2 text-2xl transition-colors hover:bg-slate-700">👎</button>
+</div>
+<textarea class="form-textarea w-full rounded-lg border-slate-600 bg-slate-700/50 text-light-primary focus:border-primary focus:ring-primary" placeholder="請在此輸入您的回饋..." rows="4"></textarea>
+</div>
+</div>
+</div>
+</body></html>

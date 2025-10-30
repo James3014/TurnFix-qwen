@@ -1,0 +1,52 @@
+# Pre-commit hooks 配置
+# 安裝：pip install pre-commit && pre-commit install
+# 測試：pre-commit run --all-files
+
+repos:
+  # Python 代碼格式化
+  - repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+      - id: black
+        language_version: python3.11
+        args: ['--line-length=100']
+
+  # Python 代碼檢查
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        args: ['--max-line-length=100', '--extend-ignore=E203']
+
+  # Python 類型檢查
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.0.0
+    hooks:
+      - id: mypy
+        additional_dependencies: ['types-all']
+        args: ['--ignore-missing-imports']
+
+  # YAML/JSON 文件檢查
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+
+  # 🔑 後端單元測試（必須通過）
+  - repo: local
+    hooks:
+      - id: pytest-check
+        name: pytest-backend
+        entry: bash -c 'cd backend && pytest tests/ --cov=. --cov-fail-under=80'
+        language: system
+        types: [python]
+        stages: [commit]
+        pass_filenames: false
+        always_run: true
+        verbose: true
+
+default_language_version:
+  python: python3.11

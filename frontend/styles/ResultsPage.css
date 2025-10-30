@@ -1,0 +1,591 @@
+/**
+ * 練習卡展示頁面樣式
+ */
+.results-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.page-header h1 {
+  color: #333;
+  margin: 0;
+}
+
+.restart-button {
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.restart-button:hover {
+  background-color: #5a6fd8;
+}
+
+.user-input-summary {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-input-summary h2 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.user-input-summary p {
+  color: #555;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.options-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.options-summary span {
+  background: #e9ecef;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.875rem;
+}
+
+.results-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.results-section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.card-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #667eea;
+}
+
+.nav-button:hover:not(:disabled) {
+  background-color: #667eea;
+  color: white;
+}
+
+.nav-button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.nav-button.prev {
+  border: 1px solid #667eea;
+}
+
+.nav-button.next {
+  border: 1px solid #667eea;
+}
+
+.card-indicators {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.indicator {
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #667eea;
+  border: 1px solid #667eea;
+}
+
+.indicator:hover {
+  background-color: #667eea;
+  color: white;
+}
+
+.indicator.active {
+  background-color: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.practice-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.practice-card.active {
+  border: 2px solid #667eea;
+}
+
+.card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.card-type {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.875rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-section {
+  margin-bottom: 1.5rem;
+}
+
+.card-section:last-child {
+  margin-bottom: 0;
+}
+
+.card-section h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.25rem;
+}
+
+.card-section p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card-section ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.card-section li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.card-section li:last-child {
+  margin-bottom: 0;
+}
+
+.card-footer {
+  border-top: 1px solid #eee;
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.meta-item {
+  background: #e9ecef;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.followup-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.followup-section.expanded {
+  text-align: left;
+}
+
+.followup-section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.followup-button {
+  background: none;
+  border: 2px dashed #667eea;
+  color: #667eea;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.followup-button:hover {
+  background-color: #667eea;
+  color: white;
+  border-style: solid;
+}
+
+.followup-question {
+  margin-bottom: 1.5rem;
+}
+
+.followup-question:last-child {
+  margin-bottom: 0;
+}
+
+.followup-question label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.followup-question input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.followup-question input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.submit-followup,
+.cancel-followup {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.submit-followup {
+  background-color: #667eea;
+  color: white;
+}
+
+.submit-followup:hover:not(:disabled) {
+  background-color: #5a6fd8;
+}
+
+.submit-followup:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cancel-followup {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancel-followup:hover {
+  background-color: #5a6268;
+}
+
+.feedback-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.feedback-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.feedback-option {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feedback-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-option.negative {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.feedback-option.neutral {
+  background-color: #f39c12;
+  color: white;
+}
+
+.feedback-option.positive {
+  background-color: #27ae60;
+  color: white;
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fdedec;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #fadbd8;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .results-page {
+    padding: 1rem;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .restart-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  .user-input-summary {
+    padding: 1rem;
+  }
+  
+  .user-input-summary h2 {
+    font-size: 1.25rem;
+  }
+  
+  .user-input-summary p {
+    font-size: 0.9rem;
+  }
+  
+  .options-summary {
+    gap: 0.5rem;
+  }
+  
+  .options-summary span {
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .results-section {
+    padding: 1.5rem;
+  }
+  
+  .results-section h2 {
+    font-size: 1.25rem;
+  }
+  
+  .card-navigation {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .card-indicators {
+    gap: 0.25rem;
+  }
+  
+  .indicator {
+    width: 30px;
+    height: 30px;
+    font-size: 0.875rem;
+  }
+  
+  .practice-card {
+    margin-bottom: 1rem;
+  }
+  
+  .card-header {
+    padding: 1rem;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+  
+  .card-type {
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-section h3 {
+    font-size: 1rem;
+  }
+  
+  .card-section p,
+  .card-section li {
+    font-size: 0.875rem;
+  }
+  
+  .card-footer {
+    padding: 0.75rem 1rem;
+  }
+  
+  .card-meta {
+    gap: 0.5rem;
+  }
+  
+  .meta-item {
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .followup-section {
+    padding: 1.5rem;
+  }
+  
+  .followup-section h2 {
+    font-size: 1.25rem;
+  }
+  
+  .followup-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .followup-question label {
+    font-size: 0.875rem;
+  }
+  
+  .followup-question input {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .submit-followup,
+  .cancel-followup {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  .feedback-section {
+    padding: 1.5rem;
+  }
+  
+  .feedback-section h2 {
+    font-size: 1.25rem;
+  }
+  
+  .feedback-options {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .feedback-option {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  .error-message {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .loading {
+    padding: 2rem;
+    font-size: 1rem;
+  }
+}

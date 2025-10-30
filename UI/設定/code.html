@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>設定</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#6EE7F9",
+              "background-light": "#f6f7f8",
+              "background-dark": "#1A1A1A",
+              "container-dark": "#2C2C2E",
+              "container-light": "#FFFFFF",
+              "text-light-primary": "#1A1A1A",
+              "text-dark-primary": "#F5F5F5",
+              "text-light-secondary": "#6B7280",
+              "text-dark-secondary": "#A0A0A0",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "Noto Sans TC", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark pb-24">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-10 flex h-16 items-center border-b border-white/10 bg-background-light/80 px-4 backdrop-blur-sm dark:bg-background-dark/80">
+<h1 class="text-xl font-bold text-text-light-primary dark:text-text-dark-primary">設定</h1>
+</div>
+<main class="flex-1 overflow-y-auto p-4">
+<!-- Section: Account Settings -->
+<section class="mb-8">
+<h2 class="mb-3 px-2 text-sm font-bold uppercase tracking-wider text-text-light-secondary dark:text-text-dark-secondary">帳戶設定</h2>
+<div class="overflow-hidden rounded-xl bg-container-light shadow-sm dark:bg-container-dark">
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<p class="text-text-light-primary dark:text-text-dark-primary text-base font-normal leading-normal flex-1 truncate">編輯個人資料</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_right</span>
+</div>
+</div>
+<div class="mx-4 border-t border-white/10"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">lock</span>
+</div>
+<p class="text-text-light-primary dark:text-text-dark-primary text-base font-normal leading-normal flex-1 truncate">更改密碼</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_right</span>
+</div>
+</div>
+<div class="mx-4 border-t border-white/10"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-red-500/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-red-500">logout</span>
+</div>
+<p class="text-red-500 text-base font-normal leading-normal flex-1 truncate">登出</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: App Preferences -->
+<section class="mb-8">
+<h2 class="mb-3 px-2 text-sm font-bold uppercase tracking-wider text-text-light-secondary dark:text-text-dark-secondary">應用程式偏好</h2>
+<div class="overflow-hidden rounded-xl bg-container-light shadow-sm dark:bg-container-dark">
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</div>
+<p class="text-text-light-primary dark:text-text-dark-primary text-base font-normal leading-normal flex-1 truncate">通知設定</p>
+</div>
+<div class="shrink-0">
+<label class="relative inline-flex cursor-pointer items-center">
+<input checked="" class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none dark:border-gray-600 dark:bg-gray-700"></div>
+</label>
+</div>
+</div>
+<div class="mx-4 border-t border-white/10"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">language</span>
+</div>
+<p class="text-text-light-primary dark:text-text-dark-primary text-base font-normal leading-normal flex-1 truncate">語言選擇</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="text-sm text-text-light-secondary dark:text-text-dark-secondary">繁體中文</span>
+<span class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_right</span>
+</div>
+</div>
+<div class="mx-4 border-t border-white/10"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">dark_mode</span>
+</div>
+<p class="text-text-light-primary dark:text-text-dark-primary text-base font-normal leading-normal flex-1 truncate">主題模式</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="text-sm text-text-light-secondary dark:text-text-dark-secondary">深色</span>
+<span class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Support & Info -->
+<section>
+<h2 class="mb-3 px-2 text-sm font-bold uppercase tracking-wider text-text-light-secondary dark:text-text-dark-secondary">支援與資訊</h2>
+<div class="overflow-hidden rounded-xl bg-container-light shadow-sm dark:bg-container-dark">
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">quiz</span>
+</div>
+<p class="text-text-light-primary dark:text-text-dark-primary text-base font-normal leading-normal flex-1 truncate">常見問題</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_right</span>
+</div>
+</div>
+<div class="mx-4 border-t border-white/10"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">privacy_tip</span>
+</div>
+<p class="text-text-light-primary dark:text-text-dark-primary text-base font-normal leading-normal flex-1 truncate">隱私政策</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_right</span>
+</div>
+</div>
+<div class="mx-4 border-t border-white/10"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">gavel</span>
+</div>
+<p class="text-text-light-primary dark:text-text-dark-primary text-base font-normal leading-normal flex-1 truncate">使用條款</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-text-light-secondary dark:text-text-dark-secondary">chevron_right</span>
+</div>
+</div>
+<div class="mx-4 border-t border-white/10"></div>
+<div class="flex items-center gap-4 p-4 min-h-14 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-text-dark-primary flex items-center justify-center rounded-lg bg-primary/20 shrink-0 size-10">
+<span class="material-symbols-outlined text-primary">info</span>
+</div>
+<p class="text-text-light-primary dark:text-text-dark-primary text-base font-normal leading-normal flex-1 truncate">關於我們</p>
+</div>
+<div class="shrink-0">
+<span class="text-sm text-text-light-secondary dark:text-text-dark-secondary">v1.0.0</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-10 flex h-20 items-center justify-around border-t border-white/10 bg-background-light/80 backdrop-blur-sm dark:bg-background-dark/80">
+<a class="flex flex-col items-center gap-1 text-text-light-secondary dark:text-text-dark-secondary" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-xs">首頁</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-text-light-secondary dark:text-text-dark-secondary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 400;">downhill_skiing</span>
+<span class="text-xs">我的練習</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1, 'wght' 400;">settings</span>
+<span class="text-xs font-bold">設定</span>
+</a>
+</nav>
+<div class="fixed bottom-0 left-0 w-full h-8 bg-gradient-to-t from-background-dark to-transparent pointer-events-none"></div>
+</div>
+</body></html>

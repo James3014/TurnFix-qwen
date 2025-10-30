@@ -1,0 +1,76 @@
+Table Symptom {
+  id int [pk, note: "必須 > 0"]
+  name varchar(100) [note: "症狀名稱"]
+  synonyms text[] [note: "儲存同義詞列表"]
+  level_scope text[] [note: "儲存適用等級範圍列表，允許未來擴充的開放字串列表"]
+  terrain_scope text[] [note: "儲存適用地形範圍列表，允許未來擴充的開放字串列表"]
+  style_scope text[] [note: "儲存適用滑行風格或類型列表"]
+  category varchar(50) [note: "症狀類別，值域：技術, 裝備"]
+  
+  indexes {
+    [name] [unique]
+  }
+}
+
+Table PracticeCard {
+  id int [pk, note: "必須 > 0"]
+  name varchar(150) [note: "練習卡名稱"]
+  goal text [note: "練習目標"]
+  tips text[] [note: "儲存要點列表，最多 3 項"]
+  pitfalls text [note: "儲存常見錯誤修正，單一文字"]
+  dosage varchar(255) [note: "儲存建議次數/時長，自由文字格式"]
+  level text[] [note: "儲存適用等級，允許未來擴充的開放字串列表"]
+  terrain text[] [note: "儲存適用地形，允許未來擴充的開放字串列表"]
+  self_check text[] [note: "儲存自我檢查點列表，最多 3 項"]
+  card_type varchar(50) [note: "練習卡類型，影響輸出格式"]
+}
+
+Table Session {
+  id int [pk, note: "必須 > 0"]
+  user_type varchar(20) [note: "使用者類型，值域：學員, 教練"]
+  input_text text [note: "使用者輸入的口語問題"]
+  level_slot varchar(50) [note: "選填等級資訊"]
+  terrain_slot varchar(50) [note: "選填地形資訊"]
+  style_slot varchar(50) [note: "選填滑行風格資訊"]
+  chosen_symptom_id int [note: "必須 > 0"]
+  feedback_rating varchar(20) [note: "回饋評分，值域：not_applicable (❌) / partially_applicable (△) / applicable (✓)，對應「不適用/部分適用/適用」"]
+  feedback_text text [note: "回饋自由文字"]
+}
+
+Table SymptomPracticeMapping {
+  symptom_id int [ref: > Symptom.id, note: "必須 > 0"]
+  practice_id int [ref: > PracticeCard.id, note: "必須 > 0"]
+  order int [note: "排序順序"]
+  // 需要額外邏輯來確保每個症狀對應 3-5 張練習卡
+
+  indexes {
+    [symptom_id, practice_id] [unique]
+  }
+}
+
+Table PracticeCardFeedback {
+  id int [pk, note: "必須 > 0"]
+  session_id int [ref: > Session.id, note: "來自哪個會話，必須 > 0"]
+  practice_id int [ref: > PracticeCard.id, note: "評價的練習卡，必須 > 0"]
+  rating int [note: "星數評分，值域：1-5 顆星（1 顆 = 不適用，3 顆 = 部分適用，5 顆 = 非常適用）"]
+  feedback_text text [note: "自由文字回饋（可選）"]
+  is_favorite boolean [note: "是否加入最愛清單（預設 false），可獨立於星數設定"]
+  created_at timestamp [note: "建立時間"]
+
+  indexes {
+    [session_id, practice_id] [unique, note: "一個會話只能對一個練習卡評分一次，但可以更新"]
+  }
+}
+
+Table SessionFeedback {
+  id int [pk, note: "必須 > 0"]
+  session_id int [ref: > Session.id, note: "對應的會話，必須 > 0"]
+  rating varchar(20) [note: "整體評分，值域：not_applicable (❌) / partially_applicable (△) / applicable (✓)"]
+  feedback_text text [note: "自由文字回饋（可選）"]
+  feedback_type varchar(20) [note: "回饋類型，值域：immediate (即時) / delayed (延遲)"]
+  created_at timestamp [note: "建立時間"]
+
+  indexes {
+    session_id [unique, note: "一個會話最多有一個 SessionFeedback"]
+  }
+}
