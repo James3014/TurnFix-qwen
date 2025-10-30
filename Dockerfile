@@ -31,5 +31,21 @@ COPY --from=builder /app/build /usr/share/nginx/html
 # 暴露端口 8080
 EXPOSE 8080
 
-# 啟動 nginx
-CMD ["nginx", "-g", "daemon off;"]
+# 添加調試：顯示配置和啟動信息
+RUN echo "==== Debugging Info ====" && \
+    echo "nginx version:" && nginx -v && \
+    echo "Config files:" && ls -la /etc/nginx/conf.d/
+
+# 創建啟動腳本來輸出調試信息
+RUN echo '#!/bin/sh' > /start.sh && \
+    echo 'echo "=== Starting nginx ==="' >> /start.sh && \
+    echo 'echo "Config file content:"' >> /start.sh && \
+    echo 'cat /etc/nginx/conf.d/default.conf' >> /start.sh && \
+    echo 'echo "Testing nginx config..."' >> /start.sh && \
+    echo 'nginx -t' >> /start.sh && \
+    echo 'echo "Starting nginx on port 8080..."' >> /start.sh && \
+    echo 'exec nginx -g "daemon off;"' >> /start.sh && \
+    chmod +x /start.sh
+
+# 使用調試腳本啟動
+CMD ["/start.sh"]
