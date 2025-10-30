@@ -1,0 +1,357 @@
+/**
+ * 症狀練習卡映射管理頁面樣式
+ */
+.symptom-practice-mapping {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.page-header p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fdedec;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #fadbd8;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.mapping-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 表單樣式 */
+.mapping-form {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.mapping-form h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group select,
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eee;
+  grid-column: 1 / -1;
+}
+
+.cancel-button,
+.submit-button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+
+.submit-button {
+  background-color: #667eea;
+  color: white;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #5a6fd8;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* 列表樣式 */
+.mapping-list {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.list-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.list-header h2 {
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.list-header p {
+  color: #6c757d;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+}
+
+.add-button {
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #5a6fd8;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  color: #333;
+}
+
+.data-table tr:hover {
+  background-color: #f1f3f4;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+.action-button.edit {
+  color: #667eea;
+  border: 1px solid #667eea;
+}
+
+.action-button.edit:hover {
+  background-color: #667eea;
+  color: white;
+}
+
+.action-button.delete {
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+.action-button.delete:hover {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.validation-info {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+}
+
+.validation-info h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.validation-info p {
+  color: #155724;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .symptom-practice-mapping {
+    padding: 1rem;
+  }
+  
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .page-header p {
+    font-size: 1rem;
+  }
+  
+  .mapping-content {
+    padding: 1.5rem;
+  }
+  
+  .mapping-form {
+    padding: 1.5rem;
+  }
+  
+  .form-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .form-group label {
+    font-size: 0.875rem;
+  }
+  
+  .form-group select,
+  .form-group input {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .cancel-button,
+  .submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .mapping-list {
+    padding: 1.5rem;
+  }
+  
+  .list-header {
+    text-align: center;
+  }
+  
+  .list-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .list-header p {
+    font-size: 0.875rem;
+  }
+  
+  .add-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .table-container {
+    font-size: 0.875rem;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem;
+  }
+  
+  .action-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .validation-info {
+    padding: 1rem;
+  }
+  
+  .validation-info h3 {
+    font-size: 1rem;
+  }
+  
+  .validation-info p {
+    font-size: 0.875rem;
+  }
+}

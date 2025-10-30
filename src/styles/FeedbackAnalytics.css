@@ -1,0 +1,865 @@
+/**
+ * 回饋分析頁面樣式
+ */
+.feedback-analytics {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.page-header h1 {
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.page-header p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.analytics-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.analytics-nav {
+  flex: 0 0 250px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.analytics-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.analytics-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.analytics-nav li:last-child {
+  margin-bottom: 0;
+}
+
+.analytics-nav button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.analytics-nav button:hover {
+  background-color: #f1f3f4;
+}
+
+.analytics-nav button.active {
+  background-color: #667eea;
+  color: white;
+}
+
+.analytics-main {
+  flex: 1;
+}
+
+/* Overview Tab Styles */
+.overview-tab .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #667eea;
+  color: white;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+.analytics-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.analytics-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.analytics-card h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.chart-placeholder {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 5px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-placeholder p {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.distribution-bars {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 100px;
+}
+
+.bar-fill {
+  width: 40px;
+  background-color: #667eea;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 0.5rem;
+  transition: height 0.5s ease;
+}
+
+.bar-label {
+  font-size: 0.75rem;
+  color: #333;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.star-distribution {
+  width: 100%;
+}
+
+.star-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+}
+
+.star-label {
+  width: 30px;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.star-fill {
+  height: 20px;
+  background-color: #f1c40f;
+  border-radius: 10px;
+  flex: 1;
+  transition: width 0.5s ease;
+}
+
+.star-count {
+  font-size: 0.875rem;
+  color: #333;
+  min-width: 30px;
+  text-align: right;
+}
+
+.comparison-bars {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.comparison-bars .bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 120px;
+}
+
+.comparison-bars .bar-fill {
+  width: 60px;
+  background-color: #667eea;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 0.5rem;
+  transition: height 0.5s ease;
+}
+
+.comparison-bars .bar-fill.immediate {
+  background-color: #27ae60;
+}
+
+.comparison-bars .bar-fill.delayed {
+  background-color: #f39c12;
+}
+
+.comparison-bars .bar-label {
+  font-size: 0.875rem;
+  color: #333;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Practice Card Tab Styles */
+.practice-card-tab .tab-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.practice-card-tab .tab-header h2 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.practice-card-tab .tab-header p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.search-section {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+.search-button {
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #5a6fd8;
+}
+
+.card-analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.analysis-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-card h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.card-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+.value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.rating-distribution h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.distribution-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.star-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.star-label {
+  width: 30px;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #667eea;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.count {
+  width: 40px;
+  font-size: 0.875rem;
+  color: #333;
+  text-align: right;
+}
+
+/* Symptom Tab Styles */
+.symptom-tab .tab-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.symptom-tab .tab-header h2 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.symptom-tab .tab-header p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.symptom-analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.analysis-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.analysis-card h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.card-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+.value {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.related-cards h4,
+.performance-indicators h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.related-cards ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.related-cards li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.indicator {
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.indicator.high {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.indicator.low {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #fadbd8;
+}
+
+/* User Preference Tab Styles */
+.user-preference-tab .tab-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.user-preference-tab .tab-header h2 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.user-preference-tab .tab-header p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.preference-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.preference-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.preference-card h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.preference-card ol {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.preference-card li {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.segment-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.segment {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+
+.segment h4 {
+  color: #333;
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.segment p {
+  color: #555;
+  margin: 0.25rem 0;
+  font-size: 0.875rem;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .feedback-analytics {
+    padding: 1rem;
+  }
+  
+  .analytics-content {
+    flex-direction: column;
+  }
+  
+  .analytics-nav {
+    flex: 0 0 auto;
+  }
+  
+  .analytics-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .analytics-nav li {
+    margin-bottom: 0;
+  }
+  
+  .analytics-nav button {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .overview-tab .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .stat-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .stat-value {
+    font-size: 1.25rem;
+  }
+  
+  .analytics-sections {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .analytics-card {
+    padding: 1.5rem;
+  }
+  
+  .analytics-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .chart-placeholder {
+    padding: 1rem;
+  }
+  
+  .chart-placeholder p {
+    font-size: 1rem;
+  }
+  
+  .distribution-bars {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .bar {
+    max-width: none;
+    width: 100%;
+  }
+  
+  .comparison-bars {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .comparison-bars .bar {
+    max-width: none;
+    width: 100%;
+  }
+  
+  .star-distribution {
+    width: 100%;
+  }
+  
+  .star-bar {
+    margin-bottom: 0.25rem;
+    gap: 0.25rem;
+  }
+  
+  .star-label {
+    width: 25px;
+    font-size: 0.75rem;
+  }
+  
+  .star-fill {
+    height: 15px;
+  }
+  
+  .star-count {
+    font-size: 0.75rem;
+    min-width: 25px;
+  }
+  
+  .practice-card-tab .search-section {
+    flex-direction: column;
+  }
+  
+  .search-input,
+  .search-button {
+    width: 100%;
+  }
+  
+  .card-analysis-grid,
+  .symptom-analysis-grid,
+  .preference-sections {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .analysis-card {
+    padding: 1.5rem;
+  }
+  
+  .analysis-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .card-stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .stat {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .label {
+    font-size: 0.75rem;
+    margin-bottom: 0;
+  }
+  
+  .value {
+    font-size: 1rem;
+  }
+  
+  .rating-distribution h4 {
+    font-size: 1rem;
+  }
+  
+  .distribution-bars {
+    gap: 0.5rem;
+  }
+  
+  .star-row {
+    gap: 0.25rem;
+  }
+  
+  .star-label {
+    width: 25px;
+    font-size: 0.75rem;
+  }
+  
+  .progress-bar {
+    height: 8px;
+  }
+  
+  .count {
+    width: 30px;
+    font-size: 0.75rem;
+  }
+  
+  .symptom-tab .tab-header {
+    text-align: center;
+  }
+  
+  .symptom-tab .tab-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .symptom-tab .tab-header p {
+    font-size: 1rem;
+  }
+  
+  .related-cards h4,
+  .performance-indicators h4 {
+    font-size: 1rem;
+  }
+  
+  .related-cards li {
+    font-size: 0.875rem;
+  }
+  
+  .indicator {
+    padding: 0.25rem;
+    font-size: 0.75rem;
+  }
+  
+  .user-preference-tab .tab-header {
+    text-align: center;
+  }
+  
+  .user-preference-tab .tab-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .user-preference-tab .tab-header p {
+    font-size: 1rem;
+  }
+  
+  .preference-card {
+    padding: 1.5rem;
+  }
+  
+  .preference-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .preference-card ol {
+    padding-left: 1rem;
+  }
+  
+  .preference-card li {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .segment-analysis {
+    gap: 0.75rem;
+  }
+  
+  .segment {
+    padding: 0.75rem;
+  }
+  
+  .segment h4 {
+    font-size: 0.875rem;
+  }
+  
+  .segment p {
+    font-size: 0.75rem;
+  }
+}

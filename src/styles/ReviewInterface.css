@@ -1,0 +1,301 @@
+/**
+ * 簡易人工審核 Web 介面樣式 (TOOL-104)
+ */
+.review-interface {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.review-interface h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.review-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.search-filter {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+  min-width: 300px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.filter-select {
+  padding: 0.5rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.batch-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.batch-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-approve {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-approve:hover:not(:disabled) {
+  background-color: #219653;
+}
+
+.btn-reject {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-reject:hover:not(:disabled) {
+  background-color: #c0392b;
+}
+
+.btn-save {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #2980b9;
+}
+
+.batch-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.review-stats {
+  background-color: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: white;
+  transition: box-shadow 0.2s ease;
+}
+
+.review-item:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.review-item.selected {
+  border-color: #3498db;
+  background-color: #f8f9ff;
+}
+
+.review-item.pending {
+  border-left: 4px solid #f39c12;
+}
+
+.review-item.approved {
+  border-left: 4px solid #27ae60;
+}
+
+.review-item.rejected {
+  border-left: 4px solid #e74c3c;
+}
+
+.selection-control {
+  float: right;
+  margin-top: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+.content {
+  margin-top: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header h3 {
+  margin: 0;
+  color: #2c3e50;
+  flex: 1;
+}
+
+.meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.confidence {
+  background-color: #eaf2f8;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: #3498db;
+}
+
+.status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-pending {
+  background-color: #fdf2e9;
+  color: #d35400;
+}
+
+.status-approved {
+  background-color: #eafaf1;
+  color: #27ae60;
+}
+
+.status-rejected {
+  background-color: #fadbd8;
+  color: #c0392b;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.details h4 {
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.details ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.details li {
+  margin-bottom: 0.25rem;
+}
+
+.details p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+  color: #555;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.btn-pending {
+  background-color: #f39c12;
+  color: white;
+}
+
+.btn-pending:hover {
+  background-color: #d35400;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.select-all-bar {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ddd;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .review-interface {
+    padding: 1rem;
+  }
+  
+  .review-controls {
+    flex-direction: column;
+  }
+  
+  .search-filter {
+    flex-direction: column;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .meta {
+    align-self: flex-start;
+  }
+  
+  .details {
+    grid-template-columns: 1fr;
+  }
+  
+  .actions {
+    justify-content: center;
+  }
+  
+  .select-all-bar {
+    justify-content: center;
+  }
+}
