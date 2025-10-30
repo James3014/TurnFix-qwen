@@ -1,0 +1,10 @@
+FROM nginx:alpine
+
+# 創建基本目錄結構
+RUN mkdir -p /usr/share/nginx/html
+
+# 創建一個簡單的 index.html 文件
+RUN echo '<!DOCTYPE html><html><head><title>TurnFix</title></head><body><h1>TurnFix is Running!</h1><p>Frontend service is working correctly.</p></body></html>' > /usr/share/nginx/html/index.html
+
+# 啟動 nginx
+CMD ["nginx", "-g", "daemon off;"]
