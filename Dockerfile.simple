@@ -1,10 +1,11 @@
+# 使用 nginx 直接服務靜態文件
 FROM nginx:alpine
 
-# 複製簡單的 nginx 配置
-COPY nginx-simple.conf /etc/nginx/nginx.conf
+# 複製 nginx 配置
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# 複製簡單的 HTML 文件
-COPY simple-index.html /usr/share/nginx/html/index.html
+# 複製公共文件
+COPY public/ /usr/share/nginx/html/
 
 # 啟動 nginx
 CMD ["nginx", "-g", "daemon off;"]
