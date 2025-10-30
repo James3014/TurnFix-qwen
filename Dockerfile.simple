@@ -1,0 +1,10 @@
+FROM nginx:alpine
+
+# 複製簡單的 nginx 配置
+COPY nginx-simple.conf /etc/nginx/nginx.conf
+
+# 複製簡單的 HTML 文件
+COPY simple-index.html /usr/share/nginx/html/index.html
+
+# 啟動 nginx
+CMD ["nginx", "-g", "daemon off;"]
