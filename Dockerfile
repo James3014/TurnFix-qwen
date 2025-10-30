@@ -1,20 +1,28 @@
-# 使用 Python 基礎映像
-FROM python:3.9-slim
+FROM node:18-alpine AS builder
 
-# 設定工作目錄
+# 設置工作目錄
 WORKDIR /app
 
-# 複製依賴文件
-COPY requirements.txt .
+# 複製 package 文件
+COPY package.json ./
 
 # 安裝依賴
-RUN pip install --no-cache-dir -r requirements.txt
+RUN npm install
 
-# 複製應用程式代碼
+# 複製源代碼
 COPY . .
 
-# 暴露端口
-EXPOSE 8000
+# 構建應用
+RUN npm run build
 
-# 啟動命令
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# 使用 nginx 服務構建的文件
+FROM nginx:alpine
+
+# 複製 nginx 配置
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# 複製構建的文件
+COPY --from=builder /app/build /usr/share/nginx/html
+
+# 啟動 nginx
+CMD ["nginx", "-g", "daemon off;"]
