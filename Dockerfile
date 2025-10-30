@@ -22,14 +22,8 @@ FROM nginx:alpine
 # 複製構建的文件到 nginx 服務目錄
 COPY --from=builder /app/build /usr/share/nginx/html
 
-# 移除 nginx 默認配置
-RUN rm /etc/nginx/conf.d/default.conf
-
-# 複製我們的 nginx 配置
-COPY nginx-simple.conf /etc/nginx/conf.d/default.conf
-
-# 創建健康檢查文件
-RUN echo "OK" > /usr/share/nginx/html/health
+# 使用完整的 nginx.conf 覆蓋默認配置，避免 entrypoint 腳本干擾
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # 暴露端口 8080
 EXPOSE 8080
@@ -37,5 +31,5 @@ EXPOSE 8080
 # 測試配置是否有效
 RUN nginx -t
 
-# 直接啟動 nginx（不使用自定義腳本）
+# 直接啟動 nginx
 CMD ["nginx", "-g", "daemon off;"]
