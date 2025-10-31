@@ -154,11 +154,13 @@ const FavoritePracticeCards = () => {
                       {'★'.repeat(card.rating) + '☆'.repeat(5 - card.rating)}
                     </div>
                   </div>
-                  <button 
+                  <button
                     className="remove-favorite"
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleRemoveFavorite(card.id);
+                      if (window.confirm(`確定要將「${card.name}」從最愛清單中移除嗎？`)) {
+                        handleRemoveFavorite(card.id);
+                      }
                     }}
                     aria-label="移除最愛"
                   >
@@ -227,11 +229,12 @@ const FavoritePracticeCards = () => {
                 <div className="card-notes">
                   <div className="notes-header">
                     <h4>練習筆記</h4>
-                    <button 
+                    <button
                       className="edit-notes"
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         const newNotes = prompt('編輯練習筆記：', card.notes || '');
-                        if (newNotes !== null) {
+                        if (newNotes !== null && newNotes.trim() !== '') {
                           handleEditNotes(card.id, newNotes);
                         }
                       }}
