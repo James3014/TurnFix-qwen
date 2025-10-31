@@ -81,33 +81,33 @@ const AdminDashboard = () => {
       <div className="quick-actions">
         <h2>快速操作</h2>
         <div className="actions-grid">
-          <button 
+          <button
             className="action-card"
-            onClick={() => navigate('/admin/symptoms')}
+            onClick={() => setActiveTab('symptoms')}
           >
             <div className="action-icon">🩺</div>
             <div className="action-label">管理症狀</div>
           </button>
-          
-          <button 
+
+          <button
             className="action-card"
-            onClick={() => navigate('/admin/practice-cards')}
+            onClick={() => setActiveTab('practice-cards')}
           >
             <div className="action-icon">📋</div>
             <div className="action-label">管理練習卡</div>
           </button>
-          
-          <button 
+
+          <button
             className="action-card"
-            onClick={() => navigate('/admin/mappings')}
+            onClick={() => setActiveTab('mappings')}
           >
             <div className="action-icon">🔗</div>
             <div className="action-label">管理映射關係</div>
           </button>
-          
-          <button 
+
+          <button
             className="action-card"
-            onClick={() => navigate('/admin/analytics')}
+            onClick={() => setActiveTab('feedback')}
           >
             <div className="action-icon">📊</div>
             <div className="action-label">查看回饋分析</div>
@@ -455,33 +455,33 @@ const AdminDashboard = () => {
               </button>
             </li>
             <li>
-              <button 
+              <button
                 className={activeTab === 'symptoms' ? 'active' : ''}
-                onClick={() => navigate('/admin/symptoms')}
+                onClick={() => setActiveTab('symptoms')}
               >
                 🩺 症狀管理
               </button>
             </li>
             <li>
-              <button 
+              <button
                 className={activeTab === 'practice-cards' ? 'active' : ''}
-                onClick={() => navigate('/admin/practice-cards')}
+                onClick={() => setActiveTab('practice-cards')}
               >
                 📋 練習卡管理
               </button>
             </li>
             <li>
-              <button 
+              <button
                 className={activeTab === 'mappings' ? 'active' : ''}
-                onClick={() => navigate('/admin/mappings')}
+                onClick={() => setActiveTab('mappings')}
               >
                 🔗 映射管理
               </button>
             </li>
             <li>
-              <button 
+              <button
                 className={activeTab === 'feedback' ? 'active' : ''}
-                onClick={() => navigate('/admin/analytics')}
+                onClick={() => setActiveTab('feedback')}
               >
                 📊 回饋分析
               </button>
