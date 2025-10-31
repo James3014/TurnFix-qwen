@@ -1,0 +1,281 @@
+/* 會話詳細頁面樣式 */
+
+.session-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.session-detail .page-header {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.session-detail .back-button {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.session-detail .back-button:hover {
+  background-color: #5a6268;
+}
+
+.session-detail h1 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+/* 會話信息卡片 */
+.session-info-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.info-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-row:last-child {
+  margin-bottom: 0;
+}
+
+.info-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-item.full-width {
+  flex: 1 1 100%;
+}
+
+.info-item strong {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.info-item span,
+.info-item p {
+  color: #555;
+  font-size: 1rem;
+}
+
+.feedback-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background-color: #e7f3ff;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.symptom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.symptom-tag {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.feedback-text {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 4px solid #3498db;
+  margin: 0;
+}
+
+/* 練習卡部分 */
+.practice-cards-section {
+  margin-top: 2rem;
+}
+
+.practice-cards-section h2 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.practice-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.practice-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.practice-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-number {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #3498db;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.card-header {
+  margin-bottom: 1rem;
+  padding-right: 2.5rem;
+}
+
+.card-header h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.card-type-badge {
+  display: inline-block;
+  background-color: #e7f3ff;
+  color: #0066cc;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.card-content {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.card-section {
+  margin-bottom: 1rem;
+}
+
+.card-section:last-child {
+  margin-bottom: 0;
+}
+
+.card-section strong {
+  color: #2c3e50;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.card-section p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card-section ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.card-section li {
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+.view-card-btn {
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.view-card-btn:hover {
+  background-color: #2980b9;
+}
+
+/* 錯誤訊息 */
+.error-message {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-message h2 {
+  color: #e74c3c;
+  margin-bottom: 1rem;
+}
+
+/* 載入中 */
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .session-detail {
+    padding: 1rem;
+  }
+
+  .session-info-card {
+    padding: 1.5rem;
+  }
+
+  .info-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .practice-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .session-detail .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

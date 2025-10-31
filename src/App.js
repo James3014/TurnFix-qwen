@@ -10,6 +10,7 @@ import SkiInputForm from './components/SkiInputForm';
 import ResultsPage from './components/ResultsPage';
 import PracticeCardDetail from './components/PracticeCardDetail';
 import PracticeHistory from './components/PracticeHistory';
+import SessionDetail from './components/SessionDetail';
 import FavoritePracticeCards from './components/FavoritePracticeCards';
 import SettingsPage from './components/SettingsPage';
 import AdminDashboard from './components/AdminDashboard';
@@ -34,6 +35,7 @@ function App() {
             <Route path="/results" element={<ResultsPage />} />
             <Route path="/practice-card/:id" element={<PracticeCardDetail />} />
             <Route path="/history" element={<PracticeHistory />} />
+            <Route path="/history/:sessionId" element={<SessionDetail />} />
             <Route path="/favorites" element={<FavoritePracticeCards />} />
             <Route path="/settings" element={<SettingsPage />} />
             
