@@ -1,43 +1,25 @@
-# TurnFix 開發 Makefile
-# 簡單直接，不做過度工程
+# TurnFix 項目 Makefile - 簡化常見開發任務
+.PHONY: help install test coverage docker-up clean
 
-.PHONY: help install dev-install run test lint format clean
+help:  ## 顯示幫助信息
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-20s %s\n", $$1, $$2}'
 
-help:
-	@echo "TurnFix 開發命令:"
-	@echo "  make install      - 安裝生產依賴"
-	@echo "  make dev-install  - 安裝開發依賴"
-	@echo "  make run          - 啟動開發伺服器"
-	@echo "  make test         - 運行測試"
-	@echo "  make lint         - 代碼風格檢查"
-	@echo "  make format       - 格式化代碼"
-	@echo "  make clean        - 清理臨時文件"
+install:  ## 安裝所有依賴
+	cd backend && pip install -r requirements.txt
+	cd frontend && npm install
 
-install:
-	pip install -r requirements.txt
+test:  ## 運行所有測試
+	cd backend && pytest
 
-dev-install: install
-	pip install -r requirements-dev.txt
+coverage:  ## 生成測試覆蓋率報告
+	cd backend && pytest --cov=backend --cov-report=term
 
-run:
-	python start_dev_server.py
+docker-up:  ## 啟動所有服務
+	docker-compose up -d
 
-test:
-	pytest tests/ -v
+docker-down:  ## 停止所有服務
+	docker-compose down
 
-lint:
-	flake8 backend/ tests/
-	mypy backend/ tests/
-
-format:
-	black backend/ tests/
-
-clean:
-	rm -rf __pycache__ .pytest_cache .mypy_cache
+clean:  ## 清理生成的文件
 	find . -type d -name __pycache__ -exec rm -rf {} +
-	find . -type f -name "*.pyc" -exec rm -f {} +
-
-# 組合命令
-dev: dev-install run
-
-check: lint test
+	find . -type f -name "*.pyc" -delete
