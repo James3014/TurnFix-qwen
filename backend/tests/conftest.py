@@ -5,6 +5,7 @@
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import StaticPool
 from fastapi.testclient import TestClient
 
 from backend.database.base import Base
@@ -25,10 +26,11 @@ def test_db():
     創建測試資料庫 fixture
     每個測試函數使用獨立的內存資料庫
     """
-    # 使用 SQLite in-memory 資料庫
+    # 使用 SQLite in-memory 資料庫，StaticPool 確保所有連接共享同一個數據庫
     engine = create_engine(
         "sqlite:///:memory:",
-        connect_args={"check_same_thread": False}
+        connect_args={"check_same_thread": False},
+        poolclass=StaticPool
     )
 
     # 創建所有表格
