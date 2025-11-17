@@ -18,6 +18,7 @@ from backend.models.session import Session as SessionModel
 from backend.models.symptom_practice_mapping import SymptomPracticeMapping
 from backend.models.practice_card_feedback import PracticeCardFeedback
 from backend.models.session_feedback import SessionFeedback
+from backend.models.user import User
 
 
 @pytest.fixture(scope="function")

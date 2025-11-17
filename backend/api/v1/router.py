@@ -20,10 +20,14 @@ from . import (
     personalization,
     video_demo,
     knowledge_management,
-    favorites
+    favorites,
+    auth
 )
 
 router = APIRouter()
+
+# 認證路由
+router.include_router(auth.router, prefix="", tags=["auth"])
 
 # 滑雪技巧建議路由
 router.include_router(ski_tips.router, prefix="", tags=["ski-tips"])

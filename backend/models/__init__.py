@@ -11,6 +11,7 @@ from . import session
 from . import symptom_practice_mapping
 from . import practice_card_feedback
 from . import session_feedback
+from . import user
 
 __all__ = [
     "symptom",
@@ -18,5 +19,6 @@ __all__ = [
     "session",
     "symptom_practice_mapping",
     "practice_card_feedback",
-    "session_feedback"
+    "session_feedback",
+    "user"
 ]
