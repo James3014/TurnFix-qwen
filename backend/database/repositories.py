@@ -343,6 +343,34 @@ class PracticeCardFeedbackRepository:
         from ..models.practice_card_feedback import PracticeCardFeedback
         return self.db.query(PracticeCardFeedback).all()
 
+    def get_all_favorites(self):
+        """獲取所有標記為最愛的回饋"""
+        from ..models.practice_card_feedback import PracticeCardFeedback
+        return self.db.query(PracticeCardFeedback).filter(
+            PracticeCardFeedback.is_favorite == True
+        ).all()
+
+    def get_favorites_with_cards(self):
+        """獲取所有最愛回饋及其對應的練習卡"""
+        from ..models.practice_card_feedback import PracticeCardFeedback
+        from ..models.practice_card import PracticeCard
+
+        favorites = self.get_all_favorites()
+        result = []
+
+        for feedback in favorites:
+            card = self.db.query(PracticeCard).filter(
+                PracticeCard.id == feedback.practice_id
+            ).first()
+
+            if card:
+                result.append({
+                    "feedback": feedback,
+                    "card": card
+                })
+
+        return result
+
 
 class SessionFeedbackRepository:
     """會話回饋數據庫操作倉庫"""

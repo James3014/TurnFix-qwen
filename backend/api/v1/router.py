@@ -5,7 +5,7 @@ API v1 路由配置
 保持簡單，避免過度工程
 """
 from fastapi import APIRouter
-from . import ski_tips, followup, feedback, admin, admin_feedback, personalization, video_demo, knowledge_management
+from . import ski_tips, followup, feedback, admin, admin_feedback, personalization, video_demo, knowledge_management, favorites
 
 router = APIRouter()
 
@@ -32,6 +32,9 @@ router.include_router(video_demo.router, prefix="", tags=["video-demo"])
 
 # 知識庫管理路由
 router.include_router(knowledge_management.router, prefix="", tags=["knowledge-management"])
+
+# 最愛管理路由
+router.include_router(favorites.router, prefix="", tags=["favorites"])
 
 # 健康檢查端點
 @router.get("/health")
