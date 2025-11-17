@@ -22,14 +22,29 @@ def check_tests():
 
         if len(test_files) > 0:
             print(f"  ✓ 後端測試文件: {len(test_files)} 個")
-            # 嘗試運行 pytest
+
+            # 首先嘗試讀取已有的 coverage.json
+            coverage_file = "backend/coverage.json"
+            if os.path.exists(coverage_file):
+                try:
+                    import json
+                    with open(coverage_file, 'r') as f:
+                        cov_data = json.load(f)
+                        coverage = cov_data['totals']['percent_covered']
+                        print(f"  ✓ 後端測試覆蓋率: {coverage:.1f}%")
+                        return coverage
+                except Exception as e:
+                    print(f"  ⚠️  讀取覆蓋率數據失敗: {e}")
+
+            # 如果沒有 coverage.json，嘗試運行 pytest
             try:
                 import subprocess
                 result = subprocess.run(
-                    ['pytest', '--cov=backend', '--cov-report=term-missing', '--tb=short'],
+                    ['pytest', 'backend/tests/', '--cov=backend', '--cov-report=term-missing', '--tb=short'],
                     capture_output=True,
                     text=True,
-                    timeout=60
+                    timeout=60,
+                    cwd='.'
                 )
                 if 'TOTAL' in result.stdout:
                     # 提取覆蓋率
