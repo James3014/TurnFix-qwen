@@ -95,21 +95,6 @@ class PracticeCardFeedbackCreate(BaseModel):
     feedback_text: Optional[str] = None
     is_favorite: bool = False
 
-class SessionFeedbackCreate(BaseModel):
-    """創建會話回饋請求模型"""
-    session_id: int
-    rating: str  # "not_applicable" | "partially_applicable" | "applicable"
-    feedback_text: Optional[str] = None
-    feedback_type: str = "immediate"  # "immediate" | "delayed"
-
-class PracticeCardFeedbackCreate(BaseModel):
-    """創建練習卡回饋請求模型"""
-    session_id: int
-    practice_id: int
-    rating: int  # 1-5
-    feedback_text: Optional[str] = None
-    is_favorite: bool = False
-
 @router.post("/ski-tips", tags=["ski-tips"])
 async def get_ski_tips_endpoint(
     input_text: str = Query(..., title="使用者輸入的口語問題", description="例如：轉彎會後坐"),
