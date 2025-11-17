@@ -131,7 +131,7 @@ def get_followup_needs(db: Session, user_input: str,
         confidence, missing_slots = assess_confidence(user_input, recognized_symptom, level, terrain, style)
         
         # 判斷是否需要追問
-        need_followup = confidence < 0.7 and (missing_slots or len(user_input.strip()) < 15)
+        need_followup = confidence < 0.7 and (bool(missing_slots) or len(user_input.strip()) < 15)
         
         # 生成追問問題
         questions = []
