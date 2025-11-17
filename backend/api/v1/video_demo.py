@@ -8,6 +8,7 @@ from typing import Optional, List, Dict, Any
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from ...database.base import get_db
+from ...database.repositories import PracticeCardRepository
 from ...services.video_demo_service import get_video_suggestions
 from ...core.config import settings
 import logging
@@ -34,9 +35,9 @@ async def get_practice_card_video_suggestions(
     根據練習卡內容搜索相關的 YouTube 視頻
     """
     try:
-        # 從資料庫獲取練習卡信息
-        from ...models.practice_card import PracticeCard
-        practice_card = db.query(PracticeCard).filter(PracticeCard.id == practice_card_id).first()
+        # 從資料庫獲取練習卡信息 - 使用 Repository 層
+        practice_repo = PracticeCardRepository(db)
+        practice_card = practice_repo.get_by_id(practice_card_id)
         
         if not practice_card:
             return {
